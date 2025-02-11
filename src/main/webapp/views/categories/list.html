@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category List</title>
+</head>
+<body>
+<h2>Danh mục Category</h2>
+<a th:href="@{/categories/create}" class="">Thêm mới danh mục</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Mô tả</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+        <td th:text="${category.description}"></td>
+        <td>
+            <a th:href="@{/categories/edit/{id}(id=${category.id})}">Sửa</a>
+            <a th:href="@{/categories/delete/{id}(id=${category.id})}"
+               onclick=" return confirm('Bạn có chắc muốn xóa danh mục')">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

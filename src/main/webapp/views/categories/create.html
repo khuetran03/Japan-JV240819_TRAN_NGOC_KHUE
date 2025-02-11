@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new Category</title>
+</head>
+<body>
+<div th:replace="layout/home :: main">
+    <h1>Tạo mới Category</h1>
+    <form th:action="@{categories/create}" method="post">
+        <label>Tên</label>
+        <input type="text" name="name" required><br><br>
+        <label>Mô tả</label>
+        <textarea name="description" rows="3" cols="40"></textarea><br><br>
+        <button type="submit">Tạo mới</button>
+        <button th:href="@{/categories}">Hủy</button>
+    </form>
+</div>
+</body>
+</html>
